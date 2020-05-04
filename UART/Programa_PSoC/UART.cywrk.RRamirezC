@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CyXmlSerializer>
+<!--This file is machine generated and read. It is not intended to be edited by hand.-->
+<!--Due to this, there is no schema for this file.-->
+<CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21 type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWrkspcCustomData" version="4">
+<CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997 type_name="CyDesigner.Common.Base.CyCustomData" version="2">
+<userData>
+<dataGuid v="1b906a0f-a7b6-4e4d-a428-82f98b53cb35">
+<CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35 type_name="CyDesigner.Common.ProjMgmt.GUI.CyExplorerWindow+CyExplorerWindowState" version="3" SelectedTab="Source">
+<TreeKeys>
+<v>Source</v>
+<v>Components</v>
+<v>Output</v>
+</TreeKeys>
+<TreeStates>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>UART</v>
+<v>UART\UART</v>
+<v>UART\UART\TopDesign</v>
+<v>UART\UART\UART.cydwr</v>
+<v>UART\UART\UART.cydwr\Pins</v>
+<v>UART\UART\UART.cydwr\Analog</v>
+<v>UART\UART\UART.cydwr\Clocks</v>
+<v>UART\UART\UART.cydwr\Interrupts</v>
+<v>UART\UART\UART.cydwr\DMA</v>
+<v>UART\UART\UART.cydwr\System</v>
+<v>UART\UART\UART.cydwr\Directives</v>
+<v>UART\UART\UART.cydwr\Flash Security</v>
+<v>UART\UART\UART.cydwr\EEPROM</v>
+<v>UART\UART\Header Files</v>
+<v>UART\UART\Header Files\cyapicallbacks.h</v>
+<v>UART\UART\Source Files</v>
+<v>UART\UART\Source Files\main.c</v>
+<v>UART\UART\Generated_Source</v>
+<v>UART\UART\Generated_Source\PSoC5</v>
+</ExpandedNodeIds>
+<VisibleNodeIds />
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>UART</v>
+<v>UART\UART</v>
+<v>UART\UART\TopDesign</v>
+<v>UART\UART\TopDesign\TopDesign.cysch</v>
+</ExpandedNodeIds>
+<VisibleNodeIds />
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>UART</v>
+<v>UART\UART</v>
+<v>UART\UART\CortexM3</v>
+<v>UART\UART\CortexM3\ARM_GCC_541</v>
+<v>UART\UART\CortexM3\ARM_GCC_541\Debug</v>
+<v>UART\UART\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>UART\UART\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>UART\UART\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>UART\UART\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>UART\UART\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>UART\UART\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>UART\UART\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>UART\UART\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>UART\UART\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>UART\UART\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>UART\UART\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>UART\UART\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>UART\UART\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>UART\UART\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_2_LED.lst</v>
+<v>UART\UART\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_1.lst</v>
+<v>UART\UART\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_1_BOOT.lst</v>
+<v>UART\UART\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_1_INT.lst</v>
+<v>UART\UART\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_1_IntClock.lst</v>
+<v>UART\UART\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_1_PM.lst</v>
+<v>UART\UART\CortexM3\ARM_GCC_541\Debug\UART.elf</v>
+<v>UART\UART\CortexM3\ARM_GCC_541\Debug\UART.hex</v>
+<v>UART\UART\CortexM3\ARM_GCC_541\Debug\UART.map</v>
+<v>UART\UART\UART.gpdsc</v>
+<v>UART\UART\UART.rpt</v>
+<v>UART\UART\UART_timing.html</v>
+</ExpandedNodeIds>
+<VisibleNodeIds />
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStates>
+<TreeKeysV2>
+<v>Datasheet</v>
+</TreeKeysV2>
+<TreeStatesV2>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>UART</v>
+<v>UART\UART</v>
+<v>UART\UART\PSoC 5LP Architecture TRM</v>
+<v>UART\UART\CY8C58LP Family Datasheet</v>
+<v>UART\UART\System Reference Guides</v>
+<v>UART\UART\System Reference Guides\cy_boot_v5_90</v>
+<v>UART\UART\cy_pins_v2_20</v>
+<v>UART\UART\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>UART\UART\Gnd_v1_0.pdf</v>
+<v>UART\UART\LED_v1_0.pdf</v>
+<v>UART\UART\Resistor_v1_0.pdf</v>
+<v>UART\UART\UART_v2_50.pdf</v>
+</ExpandedNodeIds>
+<VisibleNodeIds />
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStatesV2>
+</CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35>
+</dataGuid>
+</userData>
+</CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
+<Unloaded />
+<OpenDocs>
+<name v=".\UART.cydsn\TopDesign\TopDesign.cysch" />
+<name v=".\UART.cydsn\UART.cydwr" />
+<name v=".\UART.cydsn\main.c" />
+<name v="..\..\Tutorial_5_ADC\Workspace01\ADC_LED.cydsn\main.c" />
+</OpenDocs>
+<OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
+
+  Actipro Docking/MDI for WinForms
+  Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
+  http://www.actiprosoftware.com
+
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1515, 698" SelectedTabbedMdiWindow="89bd5b8c-21a8-49a1-8cd0-26434b9c8221"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="d1d49263-09ae-4622-82a3-f6083b592905" /><DocumentWindow Key="C:\Users\RRamirezC\Documents\PSoC Creator\Tutorial_4_UART\UART\UART.cydsn\TopDesign\TopDesign.cysch" Guid="3427ea06-d9fe-4f38-b7b6-90aebd2484dc" /><DocumentWindow Key="C:\Users\RRamirezC\Documents\PSoC Creator\Tutorial_4_UART\UART\UART.cydsn\UART.cydwr" Guid="a07f93ed-b4dd-466a-ad0a-e58bee8b3020" /><DocumentWindow Key="C:\Users\RRamirezC\Documents\PSoC Creator\Tutorial_4_UART\UART\UART.cydsn\main.c" Guid="89bd5b8c-21a8-49a1-8cd0-26434b9c8221" /><DocumentWindow Key="C:\Users\RRamirezC\Documents\PSoC Creator\Tutorial_5_ADC\Workspace01\ADC_LED.cydsn\main.c" Guid="0766bc9a-8d81-4d08-a21e-44094b5d7b66" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+<config v="" />
+<AutoUpdate v="true" />
+</CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
+</CyXmlSerializer>

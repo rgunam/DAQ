@@ -1,0 +1,821 @@
+ARM GAS  C:\Users\RRAMIR~1\AppData\Local\Temp\ccABkGWd.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.main,"ax",%progbits
+  20              		.align	2
+  21              		.global	main
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	main, %function
+  25              	main:
+  26              	.LFB64:
+  27              		.file 1 "main.c"
+   1:main.c        **** #include <project.h>
+   2:main.c        **** #include "stdio.h"
+   3:main.c        **** 
+   4:main.c        **** // Project Defines.
+   5:main.c        **** #define FALSE  0
+   6:main.c        **** #define TRUE   1
+   7:main.c        **** #define OFF    0
+   8:main.c        **** #define ON     1
+   9:main.c        **** #define TRANSMIT_BUFFER_SIZE  256
+  10:main.c        **** 
+  11:main.c        **** 
+  12:main.c        **** // Variables globales
+  13:main.c        **** 
+  14:main.c        **** uint8 ch; /* Variable para almacenar el caracter recibido.*/
+  15:main.c        **** char transmitBuffer[TRANSMIT_BUFFER_SIZE]; /*Buffer para almacenar la cadena a transmitir*/
+  16:main.c        **** 
+  17:main.c        **** 
+  18:main.c        **** int main(void)
+  19:main.c        **** {
+  28              		.loc 1 19 0
+  29              		.cfi_startproc
+  30              		@ Volatile: function does not return.
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33 0000 80B5     		push	{r7, lr}
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 7, -8
+  36              		.cfi_offset 14, -4
+  20:main.c        ****     UART_1_Start(); /*Iniciamos comunicación UART*/
+  37              		.loc 1 20 0
+ARM GAS  C:\Users\RRAMIR~1\AppData\Local\Temp\ccABkGWd.s 			page 2
+
+
+  38 0002 FFF7FEFF 		bl	UART_1_Start
+  39              	.LVL0:
+  21:main.c        ****     
+  22:main.c        ****     CyGlobalIntEnable; /* Enable global interrupts. */
+  40              		.loc 1 22 0
+  41              		.syntax unified
+  42              	@ 22 "main.c" 1
+  43 0006 62B6     		CPSIE   i
+  44              	@ 0 "" 2
+  45              		.thumb
+  46              		.syntax unified
+  47              	.L3:
+  23:main.c        **** 
+  24:main.c        ****     
+  25:main.c        ****     for(;;)
+  26:main.c        ****     {
+  27:main.c        ****         ch = UART_1_GetChar();
+  48              		.loc 1 27 0
+  49 0008 FFF7FEFF 		bl	UART_1_GetChar
+  50              	.LVL1:
+  51 000c 184B     		ldr	r3, .L9
+  52 000e 1870     		strb	r0, [r3]
+  28:main.c        ****         
+  29:main.c        ****             switch(ch){
+  53              		.loc 1 29 0
+  54 0010 4128     		cmp	r0, #65
+  55 0012 1AD0     		beq	.L4
+  56 0014 4528     		cmp	r0, #69
+  57 0016 F7D1     		bne	.L3
+  30:main.c        ****                  case 0:
+  31:main.c        ****                 // No hay dato recibido, no hace nada
+  32:main.c        ****                 break;
+  33:main.c        ****                 
+  34:main.c        ****                 case 'E':
+  35:main.c        ****                 Pin_2_LED_Write(ON);
+  58              		.loc 1 35 0
+  59 0018 0120     		movs	r0, #1
+  60 001a FFF7FEFF 		bl	Pin_2_LED_Write
+  61              	.LVL2:
+  36:main.c        ****                 sprintf(transmitBuffer, "Hola PC soy PSoC: LED ENCENDIDO.\r\n");
+  62              		.loc 1 36 0
+  63 001e 154E     		ldr	r6, .L9+4
+  64 0020 154C     		ldr	r4, .L9+8
+  65 0022 06F12007 		add	r7, r6, #32
+  66              	.L6:
+  67 0026 3546     		mov	r5, r6
+  68 0028 0FCD     		ldmia	r5!, {r0, r1, r2, r3}
+  69 002a 2060     		str	r0, [r4]	@ unaligned
+  70 002c 6160     		str	r1, [r4, #4]	@ unaligned
+  71 002e A260     		str	r2, [r4, #8]	@ unaligned
+  72 0030 E360     		str	r3, [r4, #12]	@ unaligned
+  73 0032 2E46     		mov	r6, r5
+  74 0034 1034     		adds	r4, r4, #16
+  75 0036 BD42     		cmp	r5, r7
+  76 0038 F5D1     		bne	.L6
+  77 003a 2A88     		ldrh	r2, [r5]	@ unaligned
+  78 003c AB78     		ldrb	r3, [r5, #2]	@ zero_extendqisi2
+ARM GAS  C:\Users\RRAMIR~1\AppData\Local\Temp\ccABkGWd.s 			page 3
+
+
+  79 003e 2280     		strh	r2, [r4]	@ unaligned
+  80 0040 A370     		strb	r3, [r4, #2]
+  37:main.c        ****                 UART_1_PutString(transmitBuffer);
+  81              		.loc 1 37 0
+  82 0042 0D48     		ldr	r0, .L9+8
+  83 0044 FFF7FEFF 		bl	UART_1_PutString
+  84              	.LVL3:
+  38:main.c        ****                 break;
+  85              		.loc 1 38 0
+  86 0048 DEE7     		b	.L3
+  87              	.L4:
+  39:main.c        ****                 
+  40:main.c        ****                 case 'A':
+  41:main.c        ****                 Pin_2_LED_Write(OFF);
+  88              		.loc 1 41 0
+  89 004a 0020     		movs	r0, #0
+  90 004c FFF7FEFF 		bl	Pin_2_LED_Write
+  91              	.LVL4:
+  42:main.c        ****                 sprintf(transmitBuffer, "Hola PC soy PSoC: LED APAGADO\r\n");
+  92              		.loc 1 42 0
+  93 0050 094D     		ldr	r5, .L9+8
+  94 0052 0A4C     		ldr	r4, .L9+12
+  95 0054 0FCC     		ldmia	r4!, {r0, r1, r2, r3}
+  96 0056 2860     		str	r0, [r5]	@ unaligned
+  97 0058 6960     		str	r1, [r5, #4]	@ unaligned
+  98 005a AA60     		str	r2, [r5, #8]	@ unaligned
+  99 005c EB60     		str	r3, [r5, #12]	@ unaligned
+ 100 005e 0FCC     		ldmia	r4!, {r0, r1, r2, r3}
+ 101 0060 2861     		str	r0, [r5, #16]	@ unaligned
+ 102 0062 6961     		str	r1, [r5, #20]	@ unaligned
+ 103 0064 AA61     		str	r2, [r5, #24]	@ unaligned
+ 104 0066 EB61     		str	r3, [r5, #28]	@ unaligned
+  43:main.c        ****                 UART_1_PutString(transmitBuffer);
+ 105              		.loc 1 43 0
+ 106 0068 2846     		mov	r0, r5
+ 107 006a FFF7FEFF 		bl	UART_1_PutString
+ 108              	.LVL5:
+  44:main.c        ****                 break;
+ 109              		.loc 1 44 0
+ 110 006e CBE7     		b	.L3
+ 111              	.L10:
+ 112              		.align	2
+ 113              	.L9:
+ 114 0070 00000000 		.word	ch
+ 115 0074 00000000 		.word	.LC0
+ 116 0078 00000000 		.word	transmitBuffer
+ 117 007c 24000000 		.word	.LC1
+ 118              		.cfi_endproc
+ 119              	.LFE64:
+ 120              		.size	main, .-main
+ 121              		.comm	transmitBuffer,256,4
+ 122              		.comm	ch,1,1
+ 123              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 124              		.align	2
+ 125              	.LC0:
+ 126 0000 486F6C61 		.ascii	"Hola PC soy PSoC: LED ENCENDIDO.\015\012\000"
+ 126      20504320 
+ARM GAS  C:\Users\RRAMIR~1\AppData\Local\Temp\ccABkGWd.s 			page 4
+
+
+ 126      736F7920 
+ 126      50536F43 
+ 126      3A204C45 
+ 127 0023 00       		.space	1
+ 128              	.LC1:
+ 129 0024 486F6C61 		.ascii	"Hola PC soy PSoC: LED APAGADO\015\012\000"
+ 129      20504320 
+ 129      736F7920 
+ 129      50536F43 
+ 129      3A204C45 
+ 130              		.text
+ 131              	.Letext0:
+ 132              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.3\\psoc creator\\import\\gnu\\arm\\5.4.
+ 133              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.3\\psoc creator\\import\\gnu\\arm\\5.4.
+ 134              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 135              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
+ 136              		.file 6 "Generated_Source\\PSoC5/UART_1.h"
+ 137              		.file 7 "Generated_Source\\PSoC5/Pin_2_LED.h"
+ 138              		.section	.debug_info,"",%progbits
+ 139              	.Ldebug_info0:
+ 140 0000 94010000 		.4byte	0x194
+ 141 0004 0400     		.2byte	0x4
+ 142 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 143 000a 04       		.byte	0x4
+ 144 000b 01       		.uleb128 0x1
+ 145 000c 3A000000 		.4byte	.LASF23
+ 146 0010 0C       		.byte	0xc
+ 147 0011 2E000000 		.4byte	.LASF24
+ 148 0015 23010000 		.4byte	.LASF25
+ 149 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 150 001d 00000000 		.4byte	0
+ 151 0021 00000000 		.4byte	.Ldebug_line0
+ 152 0025 02       		.uleb128 0x2
+ 153 0026 01       		.byte	0x1
+ 154 0027 06       		.byte	0x6
+ 155 0028 AE010000 		.4byte	.LASF0
+ 156 002c 02       		.uleb128 0x2
+ 157 002d 01       		.byte	0x1
+ 158 002e 08       		.byte	0x8
+ 159 002f 15010000 		.4byte	.LASF1
+ 160 0033 02       		.uleb128 0x2
+ 161 0034 02       		.byte	0x2
+ 162 0035 05       		.byte	0x5
+ 163 0036 E5010000 		.4byte	.LASF2
+ 164 003a 02       		.uleb128 0x2
+ 165 003b 02       		.byte	0x2
+ 166 003c 07       		.byte	0x7
+ 167 003d 0E000000 		.4byte	.LASF3
+ 168 0041 03       		.uleb128 0x3
+ 169 0042 C6010000 		.4byte	.LASF9
+ 170 0046 02       		.byte	0x2
+ 171 0047 3F       		.byte	0x3f
+ 172 0048 4C000000 		.4byte	0x4c
+ 173 004c 02       		.uleb128 0x2
+ 174 004d 04       		.byte	0x4
+ 175 004e 05       		.byte	0x5
+ 176 004f 72010000 		.4byte	.LASF4
+ARM GAS  C:\Users\RRAMIR~1\AppData\Local\Temp\ccABkGWd.s 			page 5
+
+
+ 177 0053 02       		.uleb128 0x2
+ 178 0054 04       		.byte	0x4
+ 179 0055 07       		.byte	0x7
+ 180 0056 CE000000 		.4byte	.LASF5
+ 181 005a 02       		.uleb128 0x2
+ 182 005b 08       		.byte	0x8
+ 183 005c 05       		.byte	0x5
+ 184 005d 00000000 		.4byte	.LASF6
+ 185 0061 02       		.uleb128 0x2
+ 186 0062 08       		.byte	0x8
+ 187 0063 07       		.byte	0x7
+ 188 0064 E0000000 		.4byte	.LASF7
+ 189 0068 04       		.uleb128 0x4
+ 190 0069 04       		.byte	0x4
+ 191 006a 05       		.byte	0x5
+ 192 006b 696E7400 		.ascii	"int\000"
+ 193 006f 02       		.uleb128 0x2
+ 194 0070 04       		.byte	0x4
+ 195 0071 07       		.byte	0x7
+ 196 0072 21000000 		.4byte	.LASF8
+ 197 0076 03       		.uleb128 0x3
+ 198 0077 EF010000 		.4byte	.LASF10
+ 199 007b 03       		.byte	0x3
+ 200 007c 2C       		.byte	0x2c
+ 201 007d 41000000 		.4byte	0x41
+ 202 0081 05       		.uleb128 0x5
+ 203 0082 C8000000 		.4byte	.LASF11
+ 204 0086 04       		.byte	0x4
+ 205 0087 E401     		.2byte	0x1e4
+ 206 0089 2C000000 		.4byte	0x2c
+ 207 008d 02       		.uleb128 0x2
+ 208 008e 04       		.byte	0x4
+ 209 008f 04       		.byte	0x4
+ 210 0090 DF010000 		.4byte	.LASF12
+ 211 0094 02       		.uleb128 0x2
+ 212 0095 08       		.byte	0x8
+ 213 0096 04       		.byte	0x4
+ 214 0097 8A010000 		.4byte	.LASF13
+ 215 009b 02       		.uleb128 0x2
+ 216 009c 01       		.byte	0x1
+ 217 009d 08       		.byte	0x8
+ 218 009e 6D010000 		.4byte	.LASF14
+ 219 00a2 02       		.uleb128 0x2
+ 220 00a3 08       		.byte	0x8
+ 221 00a4 04       		.byte	0x4
+ 222 00a5 BA010000 		.4byte	.LASF15
+ 223 00a9 02       		.uleb128 0x2
+ 224 00aa 04       		.byte	0x4
+ 225 00ab 07       		.byte	0x7
+ 226 00ac F7010000 		.4byte	.LASF16
+ 227 00b0 06       		.uleb128 0x6
+ 228 00b1 35000000 		.4byte	.LASF26
+ 229 00b5 01       		.byte	0x1
+ 230 00b6 12       		.byte	0x12
+ 231 00b7 68000000 		.4byte	0x68
+ 232 00bb 00000000 		.4byte	.LFB64
+ 233 00bf 80000000 		.4byte	.LFE64-.LFB64
+ARM GAS  C:\Users\RRAMIR~1\AppData\Local\Temp\ccABkGWd.s 			page 6
+
+
+ 234 00c3 01       		.uleb128 0x1
+ 235 00c4 9C       		.byte	0x9c
+ 236 00c5 29010000 		.4byte	0x129
+ 237 00c9 07       		.uleb128 0x7
+ 238 00ca 06000000 		.4byte	.LVL0
+ 239 00ce 6B010000 		.4byte	0x16b
+ 240 00d2 07       		.uleb128 0x7
+ 241 00d3 0C000000 		.4byte	.LVL1
+ 242 00d7 76010000 		.4byte	0x176
+ 243 00db 08       		.uleb128 0x8
+ 244 00dc 1E000000 		.4byte	.LVL2
+ 245 00e0 81010000 		.4byte	0x181
+ 246 00e4 EE000000 		.4byte	0xee
+ 247 00e8 09       		.uleb128 0x9
+ 248 00e9 01       		.uleb128 0x1
+ 249 00ea 50       		.byte	0x50
+ 250 00eb 01       		.uleb128 0x1
+ 251 00ec 31       		.byte	0x31
+ 252 00ed 00       		.byte	0
+ 253 00ee 08       		.uleb128 0x8
+ 254 00ef 48000000 		.4byte	.LVL3
+ 255 00f3 8C010000 		.4byte	0x18c
+ 256 00f7 05010000 		.4byte	0x105
+ 257 00fb 09       		.uleb128 0x9
+ 258 00fc 01       		.uleb128 0x1
+ 259 00fd 50       		.byte	0x50
+ 260 00fe 05       		.uleb128 0x5
+ 261 00ff 03       		.byte	0x3
+ 262 0100 00000000 		.4byte	transmitBuffer
+ 263 0104 00       		.byte	0
+ 264 0105 08       		.uleb128 0x8
+ 265 0106 50000000 		.4byte	.LVL4
+ 266 010a 81010000 		.4byte	0x181
+ 267 010e 18010000 		.4byte	0x118
+ 268 0112 09       		.uleb128 0x9
+ 269 0113 01       		.uleb128 0x1
+ 270 0114 50       		.byte	0x50
+ 271 0115 01       		.uleb128 0x1
+ 272 0116 30       		.byte	0x30
+ 273 0117 00       		.byte	0
+ 274 0118 0A       		.uleb128 0xa
+ 275 0119 6E000000 		.4byte	.LVL5
+ 276 011d 8C010000 		.4byte	0x18c
+ 277 0121 09       		.uleb128 0x9
+ 278 0122 01       		.uleb128 0x1
+ 279 0123 50       		.byte	0x50
+ 280 0124 02       		.uleb128 0x2
+ 281 0125 75       		.byte	0x75
+ 282 0126 00       		.sleb128 0
+ 283 0127 00       		.byte	0
+ 284 0128 00       		.byte	0
+ 285 0129 0B       		.uleb128 0xb
+ 286 012a A1010000 		.4byte	.LASF17
+ 287 012e 05       		.byte	0x5
+ 288 012f 1207     		.2byte	0x712
+ 289 0131 35010000 		.4byte	0x135
+ 290 0135 0C       		.uleb128 0xc
+ARM GAS  C:\Users\RRAMIR~1\AppData\Local\Temp\ccABkGWd.s 			page 7
+
+
+ 291 0136 76000000 		.4byte	0x76
+ 292 013a 0D       		.uleb128 0xd
+ 293 013b 636800   		.ascii	"ch\000"
+ 294 013e 01       		.byte	0x1
+ 295 013f 0E       		.byte	0xe
+ 296 0140 81000000 		.4byte	0x81
+ 297 0144 05       		.uleb128 0x5
+ 298 0145 03       		.byte	0x3
+ 299 0146 00000000 		.4byte	ch
+ 300 014a 0E       		.uleb128 0xe
+ 301 014b 9B000000 		.4byte	0x9b
+ 302 014f 5A010000 		.4byte	0x15a
+ 303 0153 0F       		.uleb128 0xf
+ 304 0154 A9000000 		.4byte	0xa9
+ 305 0158 FF       		.byte	0xff
+ 306 0159 00       		.byte	0
+ 307 015a 10       		.uleb128 0x10
+ 308 015b D0010000 		.4byte	.LASF18
+ 309 015f 01       		.byte	0x1
+ 310 0160 0F       		.byte	0xf
+ 311 0161 4A010000 		.4byte	0x14a
+ 312 0165 05       		.uleb128 0x5
+ 313 0166 03       		.byte	0x3
+ 314 0167 00000000 		.4byte	transmitBuffer
+ 315 016b 11       		.uleb128 0x11
+ 316 016c 08010000 		.4byte	.LASF19
+ 317 0170 08010000 		.4byte	.LASF19
+ 318 0174 06       		.byte	0x6
+ 319 0175 54       		.byte	0x54
+ 320 0176 11       		.uleb128 0x11
+ 321 0177 7B010000 		.4byte	.LASF20
+ 322 017b 7B010000 		.4byte	.LASF20
+ 323 017f 06       		.byte	0x6
+ 324 0180 71       		.byte	0x71
+ 325 0181 11       		.uleb128 0x11
+ 326 0182 91010000 		.4byte	.LASF21
+ 327 0186 91010000 		.4byte	.LASF21
+ 328 018a 07       		.byte	0x7
+ 329 018b 26       		.byte	0x26
+ 330 018c 11       		.uleb128 0x11
+ 331 018d F7000000 		.4byte	.LASF22
+ 332 0191 F7000000 		.4byte	.LASF22
+ 333 0195 06       		.byte	0x6
+ 334 0196 8B       		.byte	0x8b
+ 335 0197 00       		.byte	0
+ 336              		.section	.debug_abbrev,"",%progbits
+ 337              	.Ldebug_abbrev0:
+ 338 0000 01       		.uleb128 0x1
+ 339 0001 11       		.uleb128 0x11
+ 340 0002 01       		.byte	0x1
+ 341 0003 25       		.uleb128 0x25
+ 342 0004 0E       		.uleb128 0xe
+ 343 0005 13       		.uleb128 0x13
+ 344 0006 0B       		.uleb128 0xb
+ 345 0007 03       		.uleb128 0x3
+ 346 0008 0E       		.uleb128 0xe
+ 347 0009 1B       		.uleb128 0x1b
+ARM GAS  C:\Users\RRAMIR~1\AppData\Local\Temp\ccABkGWd.s 			page 8
+
+
+ 348 000a 0E       		.uleb128 0xe
+ 349 000b 55       		.uleb128 0x55
+ 350 000c 17       		.uleb128 0x17
+ 351 000d 11       		.uleb128 0x11
+ 352 000e 01       		.uleb128 0x1
+ 353 000f 10       		.uleb128 0x10
+ 354 0010 17       		.uleb128 0x17
+ 355 0011 00       		.byte	0
+ 356 0012 00       		.byte	0
+ 357 0013 02       		.uleb128 0x2
+ 358 0014 24       		.uleb128 0x24
+ 359 0015 00       		.byte	0
+ 360 0016 0B       		.uleb128 0xb
+ 361 0017 0B       		.uleb128 0xb
+ 362 0018 3E       		.uleb128 0x3e
+ 363 0019 0B       		.uleb128 0xb
+ 364 001a 03       		.uleb128 0x3
+ 365 001b 0E       		.uleb128 0xe
+ 366 001c 00       		.byte	0
+ 367 001d 00       		.byte	0
+ 368 001e 03       		.uleb128 0x3
+ 369 001f 16       		.uleb128 0x16
+ 370 0020 00       		.byte	0
+ 371 0021 03       		.uleb128 0x3
+ 372 0022 0E       		.uleb128 0xe
+ 373 0023 3A       		.uleb128 0x3a
+ 374 0024 0B       		.uleb128 0xb
+ 375 0025 3B       		.uleb128 0x3b
+ 376 0026 0B       		.uleb128 0xb
+ 377 0027 49       		.uleb128 0x49
+ 378 0028 13       		.uleb128 0x13
+ 379 0029 00       		.byte	0
+ 380 002a 00       		.byte	0
+ 381 002b 04       		.uleb128 0x4
+ 382 002c 24       		.uleb128 0x24
+ 383 002d 00       		.byte	0
+ 384 002e 0B       		.uleb128 0xb
+ 385 002f 0B       		.uleb128 0xb
+ 386 0030 3E       		.uleb128 0x3e
+ 387 0031 0B       		.uleb128 0xb
+ 388 0032 03       		.uleb128 0x3
+ 389 0033 08       		.uleb128 0x8
+ 390 0034 00       		.byte	0
+ 391 0035 00       		.byte	0
+ 392 0036 05       		.uleb128 0x5
+ 393 0037 16       		.uleb128 0x16
+ 394 0038 00       		.byte	0
+ 395 0039 03       		.uleb128 0x3
+ 396 003a 0E       		.uleb128 0xe
+ 397 003b 3A       		.uleb128 0x3a
+ 398 003c 0B       		.uleb128 0xb
+ 399 003d 3B       		.uleb128 0x3b
+ 400 003e 05       		.uleb128 0x5
+ 401 003f 49       		.uleb128 0x49
+ 402 0040 13       		.uleb128 0x13
+ 403 0041 00       		.byte	0
+ 404 0042 00       		.byte	0
+ARM GAS  C:\Users\RRAMIR~1\AppData\Local\Temp\ccABkGWd.s 			page 9
+
+
+ 405 0043 06       		.uleb128 0x6
+ 406 0044 2E       		.uleb128 0x2e
+ 407 0045 01       		.byte	0x1
+ 408 0046 3F       		.uleb128 0x3f
+ 409 0047 19       		.uleb128 0x19
+ 410 0048 03       		.uleb128 0x3
+ 411 0049 0E       		.uleb128 0xe
+ 412 004a 3A       		.uleb128 0x3a
+ 413 004b 0B       		.uleb128 0xb
+ 414 004c 3B       		.uleb128 0x3b
+ 415 004d 0B       		.uleb128 0xb
+ 416 004e 27       		.uleb128 0x27
+ 417 004f 19       		.uleb128 0x19
+ 418 0050 49       		.uleb128 0x49
+ 419 0051 13       		.uleb128 0x13
+ 420 0052 8701     		.uleb128 0x87
+ 421 0054 19       		.uleb128 0x19
+ 422 0055 11       		.uleb128 0x11
+ 423 0056 01       		.uleb128 0x1
+ 424 0057 12       		.uleb128 0x12
+ 425 0058 06       		.uleb128 0x6
+ 426 0059 40       		.uleb128 0x40
+ 427 005a 18       		.uleb128 0x18
+ 428 005b 9742     		.uleb128 0x2117
+ 429 005d 19       		.uleb128 0x19
+ 430 005e 01       		.uleb128 0x1
+ 431 005f 13       		.uleb128 0x13
+ 432 0060 00       		.byte	0
+ 433 0061 00       		.byte	0
+ 434 0062 07       		.uleb128 0x7
+ 435 0063 898201   		.uleb128 0x4109
+ 436 0066 00       		.byte	0
+ 437 0067 11       		.uleb128 0x11
+ 438 0068 01       		.uleb128 0x1
+ 439 0069 31       		.uleb128 0x31
+ 440 006a 13       		.uleb128 0x13
+ 441 006b 00       		.byte	0
+ 442 006c 00       		.byte	0
+ 443 006d 08       		.uleb128 0x8
+ 444 006e 898201   		.uleb128 0x4109
+ 445 0071 01       		.byte	0x1
+ 446 0072 11       		.uleb128 0x11
+ 447 0073 01       		.uleb128 0x1
+ 448 0074 31       		.uleb128 0x31
+ 449 0075 13       		.uleb128 0x13
+ 450 0076 01       		.uleb128 0x1
+ 451 0077 13       		.uleb128 0x13
+ 452 0078 00       		.byte	0
+ 453 0079 00       		.byte	0
+ 454 007a 09       		.uleb128 0x9
+ 455 007b 8A8201   		.uleb128 0x410a
+ 456 007e 00       		.byte	0
+ 457 007f 02       		.uleb128 0x2
+ 458 0080 18       		.uleb128 0x18
+ 459 0081 9142     		.uleb128 0x2111
+ 460 0083 18       		.uleb128 0x18
+ 461 0084 00       		.byte	0
+ARM GAS  C:\Users\RRAMIR~1\AppData\Local\Temp\ccABkGWd.s 			page 10
+
+
+ 462 0085 00       		.byte	0
+ 463 0086 0A       		.uleb128 0xa
+ 464 0087 898201   		.uleb128 0x4109
+ 465 008a 01       		.byte	0x1
+ 466 008b 11       		.uleb128 0x11
+ 467 008c 01       		.uleb128 0x1
+ 468 008d 31       		.uleb128 0x31
+ 469 008e 13       		.uleb128 0x13
+ 470 008f 00       		.byte	0
+ 471 0090 00       		.byte	0
+ 472 0091 0B       		.uleb128 0xb
+ 473 0092 34       		.uleb128 0x34
+ 474 0093 00       		.byte	0
+ 475 0094 03       		.uleb128 0x3
+ 476 0095 0E       		.uleb128 0xe
+ 477 0096 3A       		.uleb128 0x3a
+ 478 0097 0B       		.uleb128 0xb
+ 479 0098 3B       		.uleb128 0x3b
+ 480 0099 05       		.uleb128 0x5
+ 481 009a 49       		.uleb128 0x49
+ 482 009b 13       		.uleb128 0x13
+ 483 009c 3F       		.uleb128 0x3f
+ 484 009d 19       		.uleb128 0x19
+ 485 009e 3C       		.uleb128 0x3c
+ 486 009f 19       		.uleb128 0x19
+ 487 00a0 00       		.byte	0
+ 488 00a1 00       		.byte	0
+ 489 00a2 0C       		.uleb128 0xc
+ 490 00a3 35       		.uleb128 0x35
+ 491 00a4 00       		.byte	0
+ 492 00a5 49       		.uleb128 0x49
+ 493 00a6 13       		.uleb128 0x13
+ 494 00a7 00       		.byte	0
+ 495 00a8 00       		.byte	0
+ 496 00a9 0D       		.uleb128 0xd
+ 497 00aa 34       		.uleb128 0x34
+ 498 00ab 00       		.byte	0
+ 499 00ac 03       		.uleb128 0x3
+ 500 00ad 08       		.uleb128 0x8
+ 501 00ae 3A       		.uleb128 0x3a
+ 502 00af 0B       		.uleb128 0xb
+ 503 00b0 3B       		.uleb128 0x3b
+ 504 00b1 0B       		.uleb128 0xb
+ 505 00b2 49       		.uleb128 0x49
+ 506 00b3 13       		.uleb128 0x13
+ 507 00b4 3F       		.uleb128 0x3f
+ 508 00b5 19       		.uleb128 0x19
+ 509 00b6 02       		.uleb128 0x2
+ 510 00b7 18       		.uleb128 0x18
+ 511 00b8 00       		.byte	0
+ 512 00b9 00       		.byte	0
+ 513 00ba 0E       		.uleb128 0xe
+ 514 00bb 01       		.uleb128 0x1
+ 515 00bc 01       		.byte	0x1
+ 516 00bd 49       		.uleb128 0x49
+ 517 00be 13       		.uleb128 0x13
+ 518 00bf 01       		.uleb128 0x1
+ARM GAS  C:\Users\RRAMIR~1\AppData\Local\Temp\ccABkGWd.s 			page 11
+
+
+ 519 00c0 13       		.uleb128 0x13
+ 520 00c1 00       		.byte	0
+ 521 00c2 00       		.byte	0
+ 522 00c3 0F       		.uleb128 0xf
+ 523 00c4 21       		.uleb128 0x21
+ 524 00c5 00       		.byte	0
+ 525 00c6 49       		.uleb128 0x49
+ 526 00c7 13       		.uleb128 0x13
+ 527 00c8 2F       		.uleb128 0x2f
+ 528 00c9 0B       		.uleb128 0xb
+ 529 00ca 00       		.byte	0
+ 530 00cb 00       		.byte	0
+ 531 00cc 10       		.uleb128 0x10
+ 532 00cd 34       		.uleb128 0x34
+ 533 00ce 00       		.byte	0
+ 534 00cf 03       		.uleb128 0x3
+ 535 00d0 0E       		.uleb128 0xe
+ 536 00d1 3A       		.uleb128 0x3a
+ 537 00d2 0B       		.uleb128 0xb
+ 538 00d3 3B       		.uleb128 0x3b
+ 539 00d4 0B       		.uleb128 0xb
+ 540 00d5 49       		.uleb128 0x49
+ 541 00d6 13       		.uleb128 0x13
+ 542 00d7 3F       		.uleb128 0x3f
+ 543 00d8 19       		.uleb128 0x19
+ 544 00d9 02       		.uleb128 0x2
+ 545 00da 18       		.uleb128 0x18
+ 546 00db 00       		.byte	0
+ 547 00dc 00       		.byte	0
+ 548 00dd 11       		.uleb128 0x11
+ 549 00de 2E       		.uleb128 0x2e
+ 550 00df 00       		.byte	0
+ 551 00e0 3F       		.uleb128 0x3f
+ 552 00e1 19       		.uleb128 0x19
+ 553 00e2 3C       		.uleb128 0x3c
+ 554 00e3 19       		.uleb128 0x19
+ 555 00e4 6E       		.uleb128 0x6e
+ 556 00e5 0E       		.uleb128 0xe
+ 557 00e6 03       		.uleb128 0x3
+ 558 00e7 0E       		.uleb128 0xe
+ 559 00e8 3A       		.uleb128 0x3a
+ 560 00e9 0B       		.uleb128 0xb
+ 561 00ea 3B       		.uleb128 0x3b
+ 562 00eb 0B       		.uleb128 0xb
+ 563 00ec 00       		.byte	0
+ 564 00ed 00       		.byte	0
+ 565 00ee 00       		.byte	0
+ 566              		.section	.debug_aranges,"",%progbits
+ 567 0000 1C000000 		.4byte	0x1c
+ 568 0004 0200     		.2byte	0x2
+ 569 0006 00000000 		.4byte	.Ldebug_info0
+ 570 000a 04       		.byte	0x4
+ 571 000b 00       		.byte	0
+ 572 000c 0000     		.2byte	0
+ 573 000e 0000     		.2byte	0
+ 574 0010 00000000 		.4byte	.LFB64
+ 575 0014 80000000 		.4byte	.LFE64-.LFB64
+ARM GAS  C:\Users\RRAMIR~1\AppData\Local\Temp\ccABkGWd.s 			page 12
+
+
+ 576 0018 00000000 		.4byte	0
+ 577 001c 00000000 		.4byte	0
+ 578              		.section	.debug_ranges,"",%progbits
+ 579              	.Ldebug_ranges0:
+ 580 0000 00000000 		.4byte	.LFB64
+ 581 0004 80000000 		.4byte	.LFE64
+ 582 0008 00000000 		.4byte	0
+ 583 000c 00000000 		.4byte	0
+ 584              		.section	.debug_line,"",%progbits
+ 585              	.Ldebug_line0:
+ 586 0000 89010000 		.section	.debug_str,"MS",%progbits,1
+ 586      02006701 
+ 586      00000201 
+ 586      FB0E0D00 
+ 586      01010101 
+ 587              	.LASF6:
+ 588 0000 6C6F6E67 		.ascii	"long long int\000"
+ 588      206C6F6E 
+ 588      6720696E 
+ 588      7400
+ 589              	.LASF3:
+ 590 000e 73686F72 		.ascii	"short unsigned int\000"
+ 590      7420756E 
+ 590      7369676E 
+ 590      65642069 
+ 590      6E7400
+ 591              	.LASF8:
+ 592 0021 756E7369 		.ascii	"unsigned int\000"
+ 592      676E6564 
+ 592      20696E74 
+ 592      00
+ 593              	.LASF24:
+ 594 002e 6D61696E 		.ascii	"main.c\000"
+ 594      2E6300
+ 595              	.LASF26:
+ 596 0035 6D61696E 		.ascii	"main\000"
+ 596      00
+ 597              	.LASF23:
+ 598 003a 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 598      43313120 
+ 598      352E342E 
+ 598      31203230 
+ 598      31363036 
+ 599 006d 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 599      20726576 
+ 599      6973696F 
+ 599      6E203233 
+ 599      37373135 
+ 600 00a0 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 600      66756E63 
+ 600      74696F6E 
+ 600      2D736563 
+ 600      74696F6E 
+ 601              	.LASF11:
+ 602 00c8 75696E74 		.ascii	"uint8\000"
+ 602      3800
+ 603              	.LASF5:
+ARM GAS  C:\Users\RRAMIR~1\AppData\Local\Temp\ccABkGWd.s 			page 13
+
+
+ 604 00ce 6C6F6E67 		.ascii	"long unsigned int\000"
+ 604      20756E73 
+ 604      69676E65 
+ 604      6420696E 
+ 604      7400
+ 605              	.LASF7:
+ 606 00e0 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 606      206C6F6E 
+ 606      6720756E 
+ 606      7369676E 
+ 606      65642069 
+ 607              	.LASF22:
+ 608 00f7 55415254 		.ascii	"UART_1_PutString\000"
+ 608      5F315F50 
+ 608      75745374 
+ 608      72696E67 
+ 608      00
+ 609              	.LASF19:
+ 610 0108 55415254 		.ascii	"UART_1_Start\000"
+ 610      5F315F53 
+ 610      74617274 
+ 610      00
+ 611              	.LASF1:
+ 612 0115 756E7369 		.ascii	"unsigned char\000"
+ 612      676E6564 
+ 612      20636861 
+ 612      7200
+ 613              	.LASF25:
+ 614 0123 433A5C55 		.ascii	"C:\\Users\\RRamirezC\\Documents\\PSoC Creator\\Tuto"
+ 614      73657273 
+ 614      5C525261 
+ 614      6D697265 
+ 614      7A435C44 
+ 615 0151 7269616C 		.ascii	"rial_4_UART\\UART\\UART.cydsn\000"
+ 615      5F345F55 
+ 615      4152545C 
+ 615      55415254 
+ 615      5C554152 
+ 616              	.LASF14:
+ 617 016d 63686172 		.ascii	"char\000"
+ 617      00
+ 618              	.LASF4:
+ 619 0172 6C6F6E67 		.ascii	"long int\000"
+ 619      20696E74 
+ 619      00
+ 620              	.LASF20:
+ 621 017b 55415254 		.ascii	"UART_1_GetChar\000"
+ 621      5F315F47 
+ 621      65744368 
+ 621      617200
+ 622              	.LASF13:
+ 623 018a 646F7562 		.ascii	"double\000"
+ 623      6C6500
+ 624              	.LASF21:
+ 625 0191 50696E5F 		.ascii	"Pin_2_LED_Write\000"
+ 625      325F4C45 
+ 625      445F5772 
+ARM GAS  C:\Users\RRAMIR~1\AppData\Local\Temp\ccABkGWd.s 			page 14
+
+
+ 625      69746500 
+ 626              	.LASF17:
+ 627 01a1 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 627      52784275 
+ 627      66666572 
+ 627      00
+ 628              	.LASF0:
+ 629 01ae 7369676E 		.ascii	"signed char\000"
+ 629      65642063 
+ 629      68617200 
+ 630              	.LASF15:
+ 631 01ba 6C6F6E67 		.ascii	"long double\000"
+ 631      20646F75 
+ 631      626C6500 
+ 632              	.LASF9:
+ 633 01c6 5F5F696E 		.ascii	"__int32_t\000"
+ 633      7433325F 
+ 633      7400
+ 634              	.LASF18:
+ 635 01d0 7472616E 		.ascii	"transmitBuffer\000"
+ 635      736D6974 
+ 635      42756666 
+ 635      657200
+ 636              	.LASF12:
+ 637 01df 666C6F61 		.ascii	"float\000"
+ 637      7400
+ 638              	.LASF2:
+ 639 01e5 73686F72 		.ascii	"short int\000"
+ 639      7420696E 
+ 639      7400
+ 640              	.LASF10:
+ 641 01ef 696E7433 		.ascii	"int32_t\000"
+ 641      325F7400 
+ 642              	.LASF16:
+ 643 01f7 73697A65 		.ascii	"sizetype\000"
+ 643      74797065 
+ 643      00
+ 644              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
