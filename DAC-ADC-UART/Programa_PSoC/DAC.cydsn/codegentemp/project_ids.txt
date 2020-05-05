@@ -1,0 +1,6 @@
+C:\Users\RRamirezC\Documents\PSoC Creator\Tutorial_7_DAC\DAC\DAC.cydsn\DAC.cyprj|e8c5a00d-7f9e-49cf-a483-3f3bfcefd557
+C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|7602a5d5-8d5e-4bfc-9129-b893e7be7e2a
+C:\Users\RRamirezC\Documents\PSoC Creator\4.3\Downloads ( 4.3).cylib\Downloads ( 4.3).cyprj|8b024f27-5eff-4bd4-b7d3-eff97577eedf
+C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|a78132ec-efa0-476c-a47e-428569f45533
+C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|cea6df59-f3b2-4cb1-8d89-4c8cfc2fc867
+C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|ad2fe56c-97f1-4647-816b-96d5c96384d5

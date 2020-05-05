@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CyXmlSerializer>
+<!--This file is machine generated and read. It is not intended to be edited by hand.-->
+<!--Due to this, there is no schema for this file.-->
+<CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21 type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWrkspcCustomData" version="4">
+<CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997 type_name="CyDesigner.Common.Base.CyCustomData" version="2">
+<userData>
+<dataGuid v="1b906a0f-a7b6-4e4d-a428-82f98b53cb35">
+<CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35 type_name="CyDesigner.Common.ProjMgmt.GUI.CyExplorerWindow+CyExplorerWindowState" version="3" SelectedTab="Source">
+<TreeKeys>
+<v>Source</v>
+<v>Components</v>
+<v>Output</v>
+</TreeKeys>
+<TreeStates>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="DAC\DAC\Source Files\main.c">
+<ExpandedNodeIds>
+<v>DAC</v>
+<v>DAC\DAC</v>
+<v>DAC\DAC\TopDesign</v>
+<v>DAC\DAC\DAC.cydwr</v>
+<v>DAC\DAC\DAC.cydwr\Pins</v>
+<v>DAC\DAC\DAC.cydwr\Analog</v>
+<v>DAC\DAC\DAC.cydwr\Clocks</v>
+<v>DAC\DAC\DAC.cydwr\Interrupts</v>
+<v>DAC\DAC\DAC.cydwr\DMA</v>
+<v>DAC\DAC\DAC.cydwr\System</v>
+<v>DAC\DAC\DAC.cydwr\Directives</v>
+<v>DAC\DAC\DAC.cydwr\Flash Security</v>
+<v>DAC\DAC\DAC.cydwr\EEPROM</v>
+<v>DAC\DAC\Header Files</v>
+<v>DAC\DAC\Header Files\cyapicallbacks.h</v>
+<v>DAC\DAC\Source Files</v>
+<v>DAC\DAC\Source Files\main.c</v>
+<v>DAC\DAC\Generated_Source</v>
+<v>DAC\DAC\Generated_Source\PSoC5</v>
+</ExpandedNodeIds>
+<VisibleNodeIds />
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>DAC</v>
+<v>DAC\DAC</v>
+<v>DAC\DAC\TopDesign</v>
+<v>DAC\DAC\TopDesign\TopDesign.cysch</v>
+</ExpandedNodeIds>
+<VisibleNodeIds />
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>DAC</v>
+<v>DAC\DAC</v>
+<v>DAC\DAC\CortexM3</v>
+<v>DAC\DAC\CortexM3\ARM_GCC_541</v>
+<v>DAC\DAC\CortexM3\ARM_GCC_541\Debug</v>
+<v>DAC\DAC\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>DAC\DAC\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC.lst</v>
+<v>DAC\DAC\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_INT.lst</v>
+<v>DAC\DAC\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_IRQ.lst</v>
+<v>DAC\DAC\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_PM.lst</v>
+<v>DAC\DAC\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_theACLK.lst</v>
+<v>DAC\DAC\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>DAC\DAC\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>DAC\DAC\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>DAC\DAC\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>DAC\DAC\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>DAC\DAC\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>DAC\DAC\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>DAC\DAC\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>DAC\DAC\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>DAC\DAC\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>DAC\DAC\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>DAC\DAC\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>DAC\DAC\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_1.lst</v>
+<v>DAC\DAC\CortexM3\ARM_GCC_541\Debug\Listing Files\POT.lst</v>
+<v>DAC\DAC\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_1.lst</v>
+<v>DAC\DAC\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_1_BOOT.lst</v>
+<v>DAC\DAC\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_1_INT.lst</v>
+<v>DAC\DAC\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_1_IntClock.lst</v>
+<v>DAC\DAC\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_1_PM.lst</v>
+<v>DAC\DAC\CortexM3\ARM_GCC_541\Debug\Listing Files\WaveDAC8_1.lst</v>
+<v>DAC\DAC\CortexM3\ARM_GCC_541\Debug\Listing Files\WaveDAC8_1_BuffAmp.lst</v>
+<v>DAC\DAC\CortexM3\ARM_GCC_541\Debug\Listing Files\WaveDAC8_1_BuffAmp_PM.lst</v>
+<v>DAC\DAC\CortexM3\ARM_GCC_541\Debug\Listing Files\WaveDAC8_1_DacClk.lst</v>
+<v>DAC\DAC\CortexM3\ARM_GCC_541\Debug\Listing Files\WaveDAC8_1_PM.lst</v>
+<v>DAC\DAC\CortexM3\ARM_GCC_541\Debug\Listing Files\WaveDAC8_1_VDAC8.lst</v>
+<v>DAC\DAC\CortexM3\ARM_GCC_541\Debug\Listing Files\WaveDAC8_1_VDAC8_PM.lst</v>
+<v>DAC\DAC\CortexM3\ARM_GCC_541\Debug\Listing Files\WaveDAC8_1_Wave1_DMA_dma.lst</v>
+<v>DAC\DAC\CortexM3\ARM_GCC_541\Debug\Listing Files\WaveDAC8_1_Wave2_DMA_dma.lst</v>
+<v>DAC\DAC\CortexM3\ARM_GCC_541\Debug\DAC.elf</v>
+<v>DAC\DAC\CortexM3\ARM_GCC_541\Debug\DAC.hex</v>
+<v>DAC\DAC\CortexM3\ARM_GCC_541\Debug\DAC.map</v>
+<v>DAC\DAC\DAC.gpdsc</v>
+<v>DAC\DAC\DAC.rpt</v>
+<v>DAC\DAC\DAC_timing.html</v>
+</ExpandedNodeIds>
+<VisibleNodeIds />
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStates>
+<TreeKeysV2>
+<v>Datasheet</v>
+</TreeKeysV2>
+<TreeStatesV2>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>DAC</v>
+<v>DAC\DAC</v>
+<v>DAC\DAC\PSoC 5LP Architecture TRM</v>
+<v>DAC\DAC\CY8C58LP Family Datasheet</v>
+<v>DAC\DAC\System Reference Guides</v>
+<v>DAC\DAC\System Reference Guides\cy_boot_v5_90</v>
+<v>DAC\DAC\ADC_SAR_v3_10.pdf</v>
+<v>DAC\DAC\cy_constant_v1_0</v>
+<v>DAC\DAC\cy_constant_v1_0\cy_constant_v1_0.pdf</v>
+<v>DAC\DAC\cy_pins_v2_20</v>
+<v>DAC\DAC\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>DAC\DAC\UART_v2_50.pdf</v>
+<v>DAC\DAC\WaveDAC8_v2_10.pdf</v>
+</ExpandedNodeIds>
+<VisibleNodeIds />
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStatesV2>
+</CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35>
+</dataGuid>
+</userData>
+</CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
+<Unloaded />
+<OpenDocs>
+<name v=".\DAC.cydsn\TopDesign\TopDesign.cysch" />
+<name v=".\DAC.cydsn\DAC.cydwr" />
+<name v=".\DAC.cydsn\main.c" />
+</OpenDocs>
+<OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
+
+  Actipro Docking/MDI for WinForms
+  Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
+  http://www.actiprosoftware.com
+
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1323, 711" SelectedTabbedMdiWindow="a45e3da4-3e07-4f0e-b1c2-1a426b276be7"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="d1d49263-09ae-4622-82a3-f6083b592905" /><DocumentWindow Key="C:\Users\RRamirezC\Documents\PSoC Creator\Tutorial_7_DAC\DAC\DAC.cydsn\TopDesign\TopDesign.cysch" Guid="a45e3da4-3e07-4f0e-b1c2-1a426b276be7" /><DocumentWindow Key="C:\Users\RRamirezC\Documents\PSoC Creator\Tutorial_7_DAC\DAC\DAC.cydsn\DAC.cydwr" Guid="171f8c87-ea61-4625-82cd-069b332a986d" /><DocumentWindow Key="C:\Users\RRamirezC\Documents\PSoC Creator\Tutorial_7_DAC\DAC\DAC.cydsn\main.c" Guid="b4f3ef7c-d2ef-4cd9-abf4-6ba08de6943c" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+<config v="" />
+<AutoUpdate v="true" />
+</CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
+</CyXmlSerializer>
