@@ -1,0 +1,6 @@
+C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|bfc35800-e821-4271-b65a-3ab6dbf623ab
+C:\Users\RRamirezC\Documents\PSoC Creator\4.3\Downloads ( 4.3).cylib\Downloads ( 4.3).cyprj|4ba5f72b-389c-4a5f-8bc8-365347560842
+C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|29efba88-86f9-41e0-af35-686c27618738
+C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|b6d24df3-e55b-4564-b0ce-b6178260ade0
+C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|c1934804-0935-4e4e-90ff-f23c235bf01f
+C:\Users\RRamirezC\Documents\PSoC Creator\Tutorial_7a_VDAC\VDAC_v1\VDAC_v1.cydsn\VDAC_v1.cyprj|39136c9d-5a81-4abb-bb53-23c703b99ef8
