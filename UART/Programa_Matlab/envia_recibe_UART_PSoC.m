@@ -23,8 +23,8 @@ str = input(prompt,'s'); %entrada de dato por Command Window de MATLAB
 while 1  %ejecución infinita del programa hasta presionar la tecla X
     
    switch str
-       case 'A'
-          fprintf(s,'A'); %envía el comando (string) por puerto serie al PSoC
+       case 'S'
+          fprintf(s,'S'); %envía el comando (string) por puerto serie al PSoC
           dat = fscanf(s,'%s'); %recibe dato (string) por puerto del PSoC
           disp(dat) %despliega la cadena recibida en el Command Window de MATLAB para
                     %verificar que hay comunicación bidireccional
@@ -35,23 +35,23 @@ while 1  %ejecución infinita del programa hasta presionar la tecla X
                 break; %termina el programa
             end
           
-       case 'E'
-          fprintf(s,'E'); %envía el comando (string) por puerto serie al PSoC
-          dat = fscanf(s,'%s'); %recibe dato (string) por puerto del PSoC
-          disp(dat) %despliega la cadena recibida en el Command Window de MATLAB para
-                    %verificar que hay comunicación bidireccional
-          str = input(prompt,'s'); 
-            if str == 'X'
-                fclose(s);%Cierra el puerto
-                delete(s);  
-                break; %termina el programa
-            end
+%        case 'E'
+%           fprintf(s,'E'); %envía el comando (string) por puerto serie al PSoC
+%           dat = fscanf(s,'%s'); %recibe dato (string) por puerto del PSoC
+%           disp(dat) %despliega la cadena recibida en el Command Window de MATLAB para
+%                     %verificar que hay comunicación bidireccional
+%           str = input(prompt,'s'); 
+%             if str == 'X'
+%                 fclose(s);%Cierra el puerto
+%                 delete(s);  
+%                 break; %termina el programa
+%             end
             
        otherwise %en cualquier otro caso ejecuta el comando A para LED apgado
-          fprintf(s,'A'); %envía el comando (string) por puerto serie al PSoC
-          dat = fscanf(s,'%s'); %recibe dato (string) por puerto del PSoC
-          disp(dat) %despliega la cadena recibida en el Command Window de MATLAB para
-                    %verificar que hay comunicación bidireccional
+%           fprintf(s,'A'); %envía el comando (string) por puerto serie al PSoC
+%           dat = fscanf(s,'%s'); %recibe dato (string) por puerto del PSoC
+%           disp(dat) %despliega la cadena recibida en el Command Window de MATLAB para
+%                     %verificar que hay comunicación bidireccional
           str = input(prompt,'s'); 
             if str == 'X'
                 fclose(s);%Cierra el puerto
